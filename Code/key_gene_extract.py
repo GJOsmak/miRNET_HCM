@@ -29,5 +29,5 @@ for miR in list(Targets.miR_dict.keys()):
                          'LCC': len(MirNet.LCC.nodes()),
                          'key_genes': key_genes}
 
-with open('miR_key_dict.json', 'w') as outfile:
+with open('./addData/miR_key_dict.json', 'w') as outfile:
     json.dump(miR_key_dict, outfile)
