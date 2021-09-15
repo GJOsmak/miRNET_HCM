@@ -12,7 +12,7 @@ This dictionary will be used for Monte Carlo tests in step #4.
 
 For this use `bigraph_construction.ipynb`
 
-## 3. Bigraph "miRNA" -> "Reactome gene set" constaraction
+## 3. Down-regulated miRNAs analysis 
 
 For the down-regulated miRNAs the bigraph was disconnected and we analyse them separetly, one by one.
 This analysis is performed in `down_reg_miRNA_one_by_one.ipynb`
