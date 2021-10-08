@@ -1,0 +1,81 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{cmap}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{fixltx2e}
+\usepackage{float}
+
+\title{Supplemental Materials: Test for the uniqueness of miRNA-Reacome bigraph characteristics}
+\date{}
+\begin{document}
+\maketitle
+
+A graph $G = (V, E)$ consists of two sets $V$ and $E$. The elements of $V$ are the vertices and the elements of $E$ are the edges of $G$.
+
+Let $M$ denotes a set of investigated miRNAs and $Rp$ denotes a set of Reactome pathways, and given a function $f(x)$:
+\begin{displaymath}
+f(m_{i} \in M)=\{\text{key target genes}\}
+\end{displaymath}
+\begin{displaymath}
+f(r_{i} \in Rp)=\{\text{genes in pathway } r_{i}\}
+\end{displaymath}
+\\then $B=(V,E)$ is bigraph, where:
+\begin{displaymath}
+V=M \cup Rp
+\end{displaymath}
+\begin{displaymath}
+E \subseteq \{(m_{i},r_{j}) \mid m_{i},r_{j} \in V\ \text{and } f(m_{i}) \subset f(r_{j})\}
+\end{displaymath}
+\\The observed degree distribution $F(B)$ of vertices $v_{i}\in Rp$ is:
+
+\begin{center}
+	\begin{tabular}{ |c|c|c|c|c|c| } 
+		\hline
+		Degree ($j$)& 1 & 2 & 3 & 4 & 5 \\ 
+		Amount of nodes ($|\{v_{i} | deg(v_{i})=j\}|$)& 137 & 31 & 31 & 5 & 2 \\
+		\hline
+	\end{tabular}
+\end{center}
+
+We assume that if the Reactome pathways with high degree are unique for investigated miRNAs, then the observed degree distribution should be shifted to the right relative to the distribution for random selected miRNAs.
+
+Thus, the H\textsubscript{0}-hypothesis is $F(B)=F(B_{random})$, where $B_{random}$ is bigraph $B_{random}=(V_{r},E_{r})$ and:
+\begin{displaymath}
+	V_{r}=\hat M \cup Rp, \hat M \subset MT, |\hat M| = |M|
+\end{displaymath}
+where $MT$ is a set of miRNAs indexed in miRTarBase, and $\hat M$ is a set of random selected miRNAs from $MT$
+\begin{displaymath}
+	E_{r} \subseteq \{(m_{r_{i}},r_{r_{j}}) \mid m_{r_{i}},r_{r_{j}} \in V\ \text{and } f(m_{r_{i}}) \subset f(r_{r_{j}})\}
+\end{displaymath}
+
+We can test the H\textsubscript{0}-hypothesis using Chi-square statistics, with the Monte-Carlo's method for estimation of the expected frequencies of amount of nodes with $deg(v_{r_{i}})=j, v_{r_{i}} \in V_{r}$.
+\\For this:
+\begin{enumerate}
+	\item we randomly choose with replacement 8 miRNAs from miRTarBase so that:
+	\begin{enumerate}
+		\item 95\%CI for a number of selected miRNA targets $\subset$  95\%CI for a number of investigated miRNA targets
+		\item minimum LCC\textsubscript{miRNA\textsubscript{i}} size of selected miRNAs~$\geq$ minimum  LCC\textsubscript{miRNA\textsubscript{j}} size of investigated miRNAs
+		\item minimum number of key target genes of miRNA\textsubscript{i} from selected miRNAs~$\geq$ minimum number of key genes of miRNA\textsubscript{j} from  investigated miRNAs
+	\end{enumerate}
+	\item construct a $B_{random}$ and estimate the expected frequencies of amount of nodes with $deg(v_{i})=j$ by mean value
+	\item repeat steps 1-2 100 times
+\end{enumerate}
+
+As a result, we got the following estimates of $F(B_{random})$:
+
+\begin{center}
+	\begin{tabular}{ |c|c|c|c|c|c| } 
+		\hline
+		Degree ($j$) & 1 & 2 & 3 & 4 & 5 \\ 
+		Amount of nodes ($|\{v_{r_{i}} | deg(v_{r_{i}})=j\}|$) & 178.58 & 51.81 & 13.91 & 3.85 & 0.69 \\
+		\hline
+	\end{tabular}
+\end{center}
+
+The p-value is:
+\begin{displaymath}
+	P(x>\chi^2)=P(x>\sum_{j=1}^{j=5}\frac{(|\{v_{i} | deg(v_{i})=j\}|-|\{v_{r_{i}} | deg(v_{r_{i}})=j\}|)^2}{|\{v_{r_{i}} | deg(v_{r_{i}})=j\}|})=9.6*10^{-9}
+\end{displaymath}
+\pagebreak
+
+\end{document}
