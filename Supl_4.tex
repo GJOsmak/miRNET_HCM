@@ -4,8 +4,10 @@
 \usepackage{amsmath}
 \usepackage{fixltx2e}
 \usepackage{float}
+\usepackage{tabularx}
 
-\title{Supplemental Materials: Test for the uniqueness of miRNA-Reacome bigraph characteristics}
+\title{Supplementary File 4: 
+	\\Test for the uniqueness of miRNA-Reacome bigraph characteristics}
 \date{}
 \begin{document}
 \maketitle
@@ -29,10 +31,10 @@ E \subseteq \{(m_{i},r_{j}) \mid m_{i},r_{j} \in V\ \text{and } f(m_{i}) \subset
 \\The observed degree distribution $F(B)$ of vertices $v_{i}\in Rp$ is:
 
 \begin{center}
-	\begin{tabular}{ |c|c|c|c|c|c| } 
+	\begin{tabular}{ |c|c|c|c|c|c|c|c| } 
 		\hline
-		Degree ($j$)& 1 & 2 & 3 & 4 & 5 \\ 
-		Amount of nodes ($|\{v_{i} | deg(v_{i})=j\}|$)& 137 & 31 & 31 & 5 & 2 \\
+		Degree ($j$)& 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ 
+		Amount of nodes ($|\{v_{i} | deg(v_{i})=j\}|$)& 216 & 49 & 36 & 18 & 10 & 6 & 3 \\
 		\hline
 	\end{tabular}
 \end{center}
@@ -58,23 +60,26 @@ We can test the H\textsubscript{0}-hypothesis using Chi-square statistics, with 
 		\item minimum number of key target genes of miRNA\textsubscript{i} from selected miRNAs~$\geq$ minimum number of key genes of miRNA\textsubscript{j} from  investigated miRNAs
 	\end{enumerate}
 	\item construct a $B_{random}$ and estimate the expected frequencies of amount of nodes with $deg(v_{i})=j$ by mean value
-	\item repeat steps 1-2 100 times
+	\item repeat steps 1-2 10000 times
 \end{enumerate}
 
 As a result, we got the following estimates of $F(B_{random})$:
 
 \begin{center}
-	\begin{tabular}{ |c|c|c|c|c|c| } 
+	\resizebox{\columnwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|c|c|}
 		\hline
-		Degree ($j$) & 1 & 2 & 3 & 4 & 5 \\ 
-		Amount of nodes ($|\{v_{r_{i}} | deg(v_{r_{i}})=j\}|$) & 178.58 & 51.81 & 13.91 & 3.85 & 0.69 \\
+		Degree ($j$) & 1 & 2 & 3 & 4 & 5 & 6 & 7\\ 
+		Amount of nodes ($|\{v_{r_{i}} | deg(v_{r_{i}})=j\}|$) 
+		& 194.9 & 88.7 & 40.5 & 16.8 & 6.9 & 3.6 & 2.5 
+		\tabularnewline (+/- 95\%CI)  
+		& (179.8-205.4) & (82.5-99.7) & (35.4-45.3) & (14.5-18.9) & (5.7-8.7)& (2.8-4.9) & (1.7-3.8)\\
 		\hline
-	\end{tabular}
+	\end{tabular}}
 \end{center}
 
 The p-value is:
 \begin{displaymath}
-	P(x>\chi^2)=P(x>\sum_{j=1}^{j=5}\frac{(|\{v_{i} | deg(v_{i})=j\}|-|\{v_{r_{i}} | deg(v_{r_{i}})=j\}|)^2}{|\{v_{r_{i}} | deg(v_{r_{i}})=j\}|})=9.6*10^{-9}
+	P(x>\chi^2)=P(x>\sum_{j=1}^{j=5}\frac{(|\{v_{i} | deg(v_{i})=j\}|-|\{v_{r_{i}} | deg(v_{r_{i}})=j\}|)^2}{|\{v_{r_{i}} | deg(v_{r_{i}})=j\}|})=5.9*10^{-4}
 \end{displaymath}
 \pagebreak
 

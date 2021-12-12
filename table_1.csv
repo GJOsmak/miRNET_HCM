@@ -1,0 +1,18 @@
+miRNA;Number of targets;;;;
+;"total,
+N";"expressed in heart tissue,
+N (% of total)";"included in LCC,
+N (% of total)";"identified as key genes of LCC,
+N (% of total)";
+hsa-miR-29a-3p;265;138(52);28(11);7(3);
+hsa-miR-93-5p;1220;718(59);284(23);56(5);
+hsa-miR-133a-3p;131;65(50);7(5);5(4);
+hsa-miR-199a-3p;114;66(58);11(10);6(5);
+hsa-miR-221-3p;368;207(56);57(15);10(3);
+hsa-miR-222-3p;394;242(61);42(11);10(3);
+hsa-miR-451a;31;16(52);6(19);5(16);
+hsa-miR-497-5p;461;254(55);78(17);13(3);
+hsa-miR-21-5p;612;353(58);99(16);26(4);
+hsa-miR-1-3p;921;504(55);181(20);70(8);
+hsa-miR-19b-3p;714;425(60);108(15);13(2);
+hsa-miR-155-5p;904;530(59);214(24);29(3);

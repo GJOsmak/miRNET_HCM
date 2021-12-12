@@ -228,7 +228,7 @@ class Targets:
                 else:
                     self.miR_dict[key] = [val]
 
-    def get_targets(self, miR_name):
+    def get_targets(self, miR_name, concat=True):
         """
         miRTarBase содержит разные формы miRNA, так например, miR-21- может соответствовать
         miR-21-3p и miR-21-5p. Функция конкатенирует таргеты всех форм микроРНК и удалаяет дубли,
@@ -241,11 +241,16 @@ class Targets:
 
         res = set()
         mir_name_app = []
-
-        for name in miR_names:
-            if miR_name in name:
-                res.update(miR_dict[name])
-                mir_name_app.append(name)
+        
+        if concat:
+            for name in miR_names:
+                if miR_name in name:
+                    res.update(miR_dict[name])
+                    mir_name_app.append(name)
+        else:
+            if miR_name in miR_dict.keys():
+                res = set(miR_dict[miR_name])
+                mir_name_app.append(miR_name)
 
         if not mir_name_app:
             print('miRNA', '"{}"'.format(miR_name), 'not found, use another name')
@@ -255,7 +260,6 @@ class Targets:
         print('and ', len(res), 'unique targets')
 
         return res
-
 
 #   visualisation tools
 

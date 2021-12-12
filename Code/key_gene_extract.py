@@ -7,9 +7,9 @@ miR_key_dict = dict()
 tis_gene_set = miRNET.tissue_selector(ans=0, tissue_id=23)
 
 for miR in list(Targets.miR_dict.keys()):
-    if miR[-1] == 'p':
-        miR = miR[:-3] + '-'
-    miR_targets = Targets.get_targets(miR)
+#    if miR[-1] == 'p':
+#        miR = miR[:-3] + '-'
+    miR_targets = Targets.get_targets(miR, False)
     if miR_targets == 1:
         continue
     MirNet = miRNET.MainNet()  # Load String db and create gene-gene interaction network
